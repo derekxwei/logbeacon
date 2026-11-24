@@ -1,0 +1,10 @@
+{
+  "dataset": "ssh_auth_log.txt",
+  "assessed": 200,
+  "labels": {
+    "BENIGN": 120,
+    "SUSPICIOUS": 70,
+    "MALICIOUS": 10
+  }
+}
+
