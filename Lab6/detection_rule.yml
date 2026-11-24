@@ -1,0 +1,18 @@
+title: SSH Authentication Failures
+status: experimental
+description: Detects SSH authentication failures (invalid passwords or invalid users) logged by the sshd service on Linux systems. These events may indicate brute-force attempts, credential stuffing, or unauthorized access attempts.
+logsource:
+  product: linux
+  service: sshd
+detection:
+  selection:
+    message|contains:
+      - 'Failed password for'
+      - 'Invalid user'
+  condition: selection
+falsepositives:
+  - Legitimate failed login attempts due to user error (e.g., wrong password, typo in username)
+  - Automated monitoring or health checks that use invalid credentials
+  - Misconfigured services attempting SSH access with outdated credentials
+level: medium
+
